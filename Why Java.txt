@@ -1,0 +1,259 @@
+<Why Java?>
+
+- Developer Friendly
+- Automatic memory managament 
+- Versatile
+- Portable, Platform Independent
+
+<Write Once "Run Anywhere">
+
+- Object Oriented 
+- Strongly Typed
+- Used and Distributed Heavily (3 Billion Devices+)
+
+JVM(Java Virtual Machine)
+	Interperts compiled java code for your computer
+
+JRE(Java Runtime Environemnt)
+	JVM + Any other important libraries required to run java code
+
+JDK(Java Development Kit) 
+	JRE + additional tools including computer debugger
+
+
+<Object Oriented Programming>
+
+- Unit of Programming is an object which will have various states and behaviors associated with it 
+
+-Object vs. Class:
+    
+
+- We Define the structure of these objects within each class
+	States-> Variables
+	Behaviors -> Methods (Essentially functions- but they belong to an object)
+- In a class we can include:
+	1. Instance Variables
+	2. Static Variables
+	3. Instance Methods
+	4. Static Methods
+
+* Non-Access Modifiers *
+
+	1. Static- Don't need an Instance of the class in order to access it
+	2. Final- Variables cannot be reassigned/modified, methods cannot be overriden, classes cannot be extended
+	3. Abstract- 
+	4. Transient-
+	5. Synchronized-
+
+Declare A Variable:
+
+[Java]
+Static[Non-Access/Access Modifiers] var[type] word[identifier]: bleh[assignment];
+[End] 
+
+< Access Modifiers >
+
+- public: Any class, Any Package/Function can modify/access it
+
+- "Package": default, varuable/methods wuth no access modifier will be availiable in every class within the same package
+
+- Protected: within the package/function, and any child/sub-function of parent can access it
+
+- private: only accessible within the declared class
+
+< Method Declarations >
+
+[Access Modifiers][Return Type][identifiers]([type] in ...){
+//implementaion also double slash means comment
+}
+
+Example
+
+[Java]
+
+public static void main (String[] args){
+	//Executable Code
+}
+
+[End]
+
+
+<Scopes of a Variable> 
+	- where a Variable is accessible within a class
+
+	Types:
+	1. Static Scope/Class scope: a Variable is accessible anywhere in a class
+	2. Local Scope/Method Scope: in variable is accessible within the method
+	3. Instance Scope: Accessible within a particular instance of an object
+	4. Block Scope: Within a loop, a condition
+
+Constructors
+------------
+
+	-Used to create an instance of an object
+	-Do not have a return type
+
+ Example:
+ 	public class Bicycle{
+ 		int speed,
+ 		int gear,
+ 		public Bicycle(){
+ 			Super(),
+ 		}
+ 	}
+
+
+4 Pillars of OOP
+
+Abstraction: Hiding implementation details hiding irrelevant information, and focus on what something does vs how it does it
+
+Inheritance: Ability of classes to gain functionality by extending/adopting the state of another class
+
+	Ex: 
+//Java program to illustrate the 
+// concept of inheritance
+ 
+// base class
+class Bicycle 
+{
+    // the Bicycle class has two fields
+    public int gear;
+    public int speed;
+         
+    // the Bicycle class has one constructor
+    public Bicycle(int gear, int speed)
+    {
+        this.gear = gear;
+        this.speed = speed;
+    }
+         
+    // the Bicycle class has three methods
+    public void applyBrake(int decrement)
+    {
+        speed -= decrement;
+    }
+         
+    public void speedUp(int increment)
+    {
+        speed += increment;
+    }
+     
+    // toString() method to print info of Bicycle
+    public String toString() 
+    {
+        return("No of gears are "+gear
+                +"\n"
+                + "speed of bicycle is "+speed);
+    } 
+}
+ 
+// derived class
+class MountainBike extends Bicycle 
+{
+     
+    // the MountainBike subclass adds one more field
+    public int seatHeight;
+ 
+    // the MountainBike subclass has one constructor
+    public MountainBike(int gear,int speed,
+                        int startHeight)
+    {
+        // invoking base-class(Bicycle) constructor
+        super(gear, speed);
+        seatHeight = startHeight;
+    } 
+         
+    // the MountainBike subclass adds one more method
+    public void setHeight(int newValue)
+    {
+        seatHeight = newValue;
+    } 
+     
+    // overriding toString() method
+    // of Bicycle to print more info
+    @Override
+    public String toString()
+    {
+        return (super.toString()+
+                "\nseat height is "+seatHeight);
+    }
+     
+}
+ 
+// driver class
+public class Test 
+{
+    public static void main(String args[]) 
+    {
+         
+        MountainBike mb = new MountainBike(3, 100, 25);
+        System.out.println(mb.toString());
+             
+    }
+}
+
+Encapsulation: Wrapping variables & methods together to accopmplish data hiding
+	Ex:
+	class EncapsulationDemo{
+    private int ssn;
+    private String empName;
+    private int empAge;
+
+    //Getter and Setter methods
+    public int getEmpSSN(){
+        return ssn;
+    }
+
+    public String getEmpName(){
+        return empName;
+    }
+
+    public int getEmpAge(){
+        return empAge;
+    }
+
+    public void setEmpAge(int newValue){
+        empAge = newValue;
+    }
+
+    public void setEmpName(String newValue){
+        empName = newValue;
+    }
+
+    public void setEmpSSN(int newValue){
+        ssn = newValue;
+    }
+}
+public class EncapsTest{
+    public static void main(String args[]){
+         EncapsulationDemo obj = new EncapsulationDemo();
+         obj.setEmpName("Mario");
+         obj.setEmpAge(32);
+         obj.setEmpSSN(112233);
+         System.out.println("Employee Name: " + obj.getEmpName());
+         System.out.println("Employee SSN: " + obj.getEmpSSN());
+         System.out.println("Employee Age: " + obj.getEmpAge());
+    } 
+}
+
+
+
+Polymorphism: Process of redefining functions/methods through overriding
+		Ex:
+			public class Animal{
+				public void sound(){
+					System.out.println("Animal is making a sound")
+				}
+			}
+
+			class Horse extends Animal{
+				@Override
+				public void sound(){
+					System.out.println("Neigh")
+				}
+			}
+
+Classes
+->Can extend multiple interfaces
+
+->Classes can only extend one class

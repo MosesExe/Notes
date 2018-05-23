@@ -1,0 +1,114 @@
+Object
+- Anything that extends from the object class
+Ex:
+	String
+
+
+Primitive Data Types:
+
+Name	Bit depths       Default Values        Wrapper Class
+----	------------     --------------        -------------
+byte	08 bit depth     0					   Byte
+char	16 bit depth     '\u0000' Null		   Character
+short	16 bit depth     0					   Short
+int		32 bit depth     0					   Interger
+long	64 bit depth     0					   Long
+float	32 bit depth     00					   Float
+double	64 bit depth     00					   Double
+boolean	varies depth     false				   Boolean
+
+
+narrowing and widening the bit depths
+
+Autoboxing- Automatic conversion of one primitive value date type to its wrapper class
+	Ex: A method took an int parameter, and returned an interger objeccct with the same value
+
+AutoUnboxing- automatic conversion of an object to primitve 
+
+
+Arrays
+-------
+- Data structure which holds a fixed number of the same type of object or primitive
+- Each number is numerically indexed (we start at 0)
+- We have an Array Utility class which provides useful methods for working with arrays
+
+Ex: int[x] arr -> Declares interger array called arr of x size
+
+	int[] arr = new int[4] -> Declares interger array called arr of size 4 (Starts at 0 so only goes up to 3)
+
+
+Loops
+------
+
+Ex:
+for loop example:
+	for(int i : arr){
+		System.out.println(i);
+	}
+
+	for(int i=0; i<4; i++ ){
+		System.out.println(i);
+	}
+
+while example:
+	while loop(condition){
+		//executable code;
+	}
+
+do while example:
+	do{
+		//excutable
+	}while(condition);
+
+function for example:
+	void printAll(int a){
+		for(int i:a){
+			System.out.println(i);
+		}
+	}
+
+
+Exception Handling
+------------------
+
+-> Using a try catch block
+->Add a throw clause
+
+try{
+	//This code
+}catch(Exception e){
+	//Whatever happens when exception e is caught
+}finally{
+	//code which will execute regardless of whether the exception is thrown
+}
+
+
+**Neither Catch or Finally is required, but one of them is required
+	Ex: You can have catch and not finally, or Finally and not catch, but you need at least one
+
+
+try{
+	//Code that could throw a SQLException and an IO exception
+} catch(Exception e){
+	//do something
+} catch(SQLException se){ | **As it is, as long as the catch above it is just Exception e it'll never reach SQLException since  
+	//do something else	  |		Exception catches all exceptions
+}
+
+
+
+
+
+try block with resources:
+--------------------------
+
+-A way to autoclose any resource which implements autoclosable
+	Ex: java.long.Autoclosable
+-Resources could include:
+	BufferedReader
+	Connection
+	etc...
+
+try(declare your resource){
+	//use your resource
+}

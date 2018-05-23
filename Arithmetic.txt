@@ -1,0 +1,156 @@
+Arithmetic Operators
+---------------------
+
++,-,/,*,%(Mod Operator returns remainder)
+
+increment/decrement
+++/--
+
+int x=S; x++; x=6; x--;  x=s
+
+
+Ternary Operator
+-----------------
+
+(condition)?(evaluates if condition=true):(evaluates if condition=false);
+
+Ex: int x = (5>2)? 12(condition true):6(condition false);
+	Ans: x = 12 since 5 is greater than 2
+
+
+Bitwise & Logical Operators
+----------------------------
+& vs &&
+
+&														&&
+-compares each bit 										-Logical
+-can be used on primitives that are not booleans        -Only used with boolean values
+-generally operates the same way as logical booleans
+
+
+
+*(true)||(false) -> true
+*(true)||(true) -> true
+*(false)&&(true) -> false
+*(false)&&(false) -> false			*Can be determined by the first operand,so we "short circuit"
+(true)&&(true) -> true
+(true)&&(false) -> false
+
+
+Equality Operators
+-------------------
+
+!=, ==
+
+==													.equals(the dot is apart of it)
+-compares reference of an object					-Must be overridden in most classes to be meaningful
+-checking to see if they are the exact same object	-Used to check the value equality in objects
+-safe with primitive data types						-.equals is meaningful when working with strings
+
+
+Strings
+--------
+
+-Character arrays, sequence of characters, etc.
+-immutable sequence of characters (string literal)(Not eligible for change once set)
+	Ex: "   " " Hello "
+-Stored in the String pool 
+	
+	String Pool
+	------------
+	-Stored in heap memory
+	-Where strings are directly stored
+	-What makes them immutable 
+
+	Ex:
+
+	String s1= "Dog" stored in location x in pool
+	String s2= "Cat" stored in location y in pool
+	String s3= "Dog" points to location x in pool since it's the same word
+	String s4= new String("Dog") stored in location z because of new keyword
+	s1=s1+"!"  "Dog!" will be stored in location aa since it's a new word, and not the same as "Dog"
+
+
+String Buffer & String Builder
+------------------------------
+
+-mutable alternatives to Strings to represent sequences of characters
+
+
+Strings vs String Buffer vs String Builder
+-------------------------------------------
+All
+-Ways to represent character sequences
+
+Strings
+-immutable
+-Stored in the String Pool
+
+
+String Buffer
+-Synchronized
+-Slower than String and String Builder
+
+
+String Builder
+-Not Thread Sage
+
+
+String Buffer & Strings
+-Thread Safe
+
+
+String Buffer & Builder
+-Mutable
+-Share multiple methods(Append, Insert, Reverse)
+
+
+Reflection
+----------
+-Feature of java which allows program introspection
+-Allows us to analyze and manipulate java classes
+-Get methods, methods w/fields
+	-return types
+	-access modifiers
+		-> this includes private members
+-can also invoke methods dynamically
+-Use Reflection API to do this
+
+-Extremely powerful tool
+	-Used in debuggers
+	-Used in frameworks and when working with annotations
+-We only want to use it sparingly/when necessary because of its power
+	-maintain the integrity of our access modifiers
+	-can lead to performance overhead & unnecessarily expose the inner workings of our programs
+
+
+FileIO
+-------
+-java.io package is going to provide the functionality to work with inputting/outputting data from/to files
+-Done through Streams
+	-Character Stream
+		-Human Readable Text
+		-FileReader(Input) class (Character by Character)
+		-FileWriter(Output) class (Character by Character)
+		-BufferedReader(Pulls in more than single characters at a time)
+		-BufferedWriter(Outputs more than a single character at a time)
+	-Byte Stream
+		-Machine Readable Text (byte code)
+		-FileInputStream
+		-FileOutputStream
+		-BufferedInputStream
+		-BufferedOutputStream
+
+Serialization
+-------------
+
+-The process of converting our java objects to bytecode
+-Used for Object Persistence
+-Use ObjectOutputStream to serialize our Java objects
+	-.writeObject
+-Use ObjectInputStream to de-serialize our bytecode and recreate our Java pbjects
+	-.readObject
+
+
+
+
