@@ -1,0 +1,13 @@
+Collections Framework
+----------------------
+
+Collection - one of the root interfaces in our collection framework
+			 extended by Set,List,Queue
+Collections- Utility class that provides useful methods that work with Collections
+
+How collections are unique and specifically unique from arrays:
+
+-They cannot hold primitive data types (Use wrapper classes instead to hold those values when needed)
+-Dynamic in size (Don't need to be instantiated with a size like arrays, you can but don't need to)
+	-size can dynamically chage as you add/remove items
+
